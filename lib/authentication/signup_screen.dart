@@ -1,3 +1,4 @@
+import 'package:driver/authentication/car_info_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/custom_textfield.dart';
@@ -70,7 +71,9 @@ class _SignupScreenState extends State<SignupScreen> {
               //button
               CustomButton(
                 text: "Create Account",
-                function: (){},
+                function: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>CarInfoScreen()));
+                },
               ),
             ],
           ),

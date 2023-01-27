@@ -1,5 +1,6 @@
 import 'package:driver/authentication/car_info_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../widgets/custom_textfield.dart';
 import '../widgets/cutom_button.dart';
@@ -31,19 +32,19 @@ class _SignupScreenState extends State<SignupScreen> {
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding:  EdgeInsets.all(1.6.w),
           child: Column(
             children: [
-             Padding(padding: EdgeInsets.all(20),
+             Padding(padding: EdgeInsets.all(2.5.w),
              child:  Hero(
                  tag: "logo",
                  child: Image.asset("images/logo1.png")),
              ),
-              SizedBox(height: 10,),
-             const Text("Resgister as a Driver",
+              SizedBox(height: 1.0.h,),
+              Text("Resgister as a Driver",
               style: TextStyle(
                 color: Colors.amber,
-                fontSize: 26,
+                fontSize: 20.0.sp,
                 fontWeight: FontWeight.bold,
               ),
               ),
@@ -67,7 +68,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 isObsucreType: true,
               ),
 
-              SizedBox(height: 20,),
+              SizedBox(height: 2.h,),
               //button
               CustomButton(
                 text: "Create Account",

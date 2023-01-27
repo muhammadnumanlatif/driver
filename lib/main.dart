@@ -1,18 +1,23 @@
 import 'package:driver/splashScreen/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   runApp( MyApp(
-    child:MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Drivers App',
-        theme: ThemeData(
-          primarySwatch: Colors.amber,
-          useMaterial3: true,
-        ),
-        home: const MySplashScreen(),
+    child:ResponsiveSizer(
+      builder:  (context, orientation, screenType) {
+        return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Drivers App',
+            theme: ThemeData(
+              primarySwatch: Colors.amber,
+              useMaterial3: true,
+            ),
+            home: const MySplashScreen(),
 
+        );
+      }
     )
   ));
 }

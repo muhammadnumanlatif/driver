@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -14,7 +15,7 @@ class CustomButton extends StatelessWidget {
       child: Text(text!,
         style: TextStyle(
           color: Colors.black,
-          fontSize: 18,
+          fontSize: 20.sp,
         ),
       ),
       style: ButtonStyle(

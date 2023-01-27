@@ -35,11 +35,13 @@ class _MySplashScreenState extends State<MySplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("images/logo1.png"),
+              Hero(
+                  tag: "logo",
+                  child: Image.asset("images/logo1.png")),
              const Text("Driver App",
               style: TextStyle(
                 fontSize: 20,
-                color: Colors.white,
+                color: Colors.amber,
                 fontWeight: FontWeight.bold,
               ),
               )

@@ -52,16 +52,19 @@ class _SignupScreenState extends State<SignupScreen> {
                   nameController: nameController,
                 label: "Name",
                 ),
+              SizedBox(height: 1.h,),
               CustomTextField(
                 nameController: emailController,
                 label: "Email",
                 textInputType: TextInputType.emailAddress,
               ),
+              SizedBox(height: 1.h,),
               CustomTextField(
                 nameController: phoneController,
                 label: "Phone",
                 textInputType: TextInputType.phone,
               ),
+              SizedBox(height: 1.h,),
               CustomTextField(
                 nameController: passwordController,
                 label: "Password",

@@ -1,9 +1,13 @@
 import 'package:driver/authentication/car_info_screen.dart';
+import 'package:driver/widgets/progress_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../widgets/custom_text_button.dart';
 import '../widgets/custom_textfield.dart';
 import '../widgets/cutom_button.dart';
+import 'login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -26,6 +30,42 @@ class _SignupScreenState extends State<SignupScreen> {
     passwordController!.dispose();
     super.dispose();
   }
+
+  validateForm(){
+    if(nameController!.text.length<3){
+     return Fluttertoast.showToast(
+         backgroundColor: Colors.amber,
+         textColor: Colors.black,
+         fontSize: 18.0.sp,
+         msg: "Name must be atleast 3 Charachters long");
+    }else if(!emailController!.text.contains('@') || emailController!.text.isEmpty){
+      return Fluttertoast.showToast(
+          backgroundColor: Colors.amber,
+          textColor: Colors.black,
+          fontSize: 18.0.sp,
+          msg: "Email address is not valid.");
+    }else if(phoneController!.text.isEmpty){
+      return Fluttertoast.showToast(
+          backgroundColor: Colors.amber,
+          textColor: Colors.black,
+          fontSize: 18.0.sp,
+          msg: "Phone no. is mandatory.");
+    } else if(passwordController!.text.length<6){
+      return Fluttertoast.showToast(
+          backgroundColor: Colors.amber,
+          textColor: Colors.black,
+          fontSize: 18.0.sp,
+          msg: "Password must be atleast 6 characters");
+    }else{
+      showDialog(context: context,
+         barrierDismissible: false,
+          builder: (BuildContext context){
+        return ProgressDialog(msg: 'Processing, Please wait...',);
+          });
+
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +116,14 @@ class _SignupScreenState extends State<SignupScreen> {
               CustomButton(
                 text: "Create Account",
                 function: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>CarInfoScreen()));
+                  validateForm();
+                },
+              ),
+              CustomTextButton(
+                text: "Already have an Account? Login Here",
+                function: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+
                 },
               ),
             ],

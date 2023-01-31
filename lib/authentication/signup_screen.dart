@@ -57,13 +57,18 @@ class _SignupScreenState extends State<SignupScreen> {
           fontSize: 18.0.sp,
           msg: "Password must be atleast 6 characters");
     }else{
-      showDialog(context: context,
-         barrierDismissible: false,
-          builder: (BuildContext context){
-        return ProgressDialog(msg: 'Processing, Please wait...',);
-          });
+
+      saveDriverInfoNow();
 
     }
+  }
+
+  saveDriverInfoNow(){
+    showDialog(context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context){
+          return ProgressDialog(msg: 'Processing, Please wait...',);
+        });
   }
 
   @override
